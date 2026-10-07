@@ -20,33 +20,15 @@
         </div>
       </header>
 
-      <section class="settings-bar" aria-label="版面设置">
-        <label>
-          纸张
-          <select id="paperSize">
-            <option value="postcard">明信片</option>
-            <option value="bookmark">书签</option>
-            <option value="square">方形小笺</option>
-          </select>
-        </label>
-        <label>
-          方向
-          <select id="flowMode">
-            <option value="horizontal">横排</option>
-            <option value="vertical">竖排</option>
-          </select>
-        </label>
-        <label>
-          网格
-          <input id="gridGap" type="range" min="4" max="18" value="8" />
-        </label>
-        <label>
-          作品名
-          <input id="workTitle" type="text" placeholder="例：晚风小笺" />
-        </label>
-      </section>
+      <nav class="tabs" role="tablist" aria-label="工作台切换">
+        <button id="tabBoard" class="tab-btn active" type="button" data-tab="board">排版台</button>
+        <button id="tabLedger" class="tab-btn" type="button" data-tab="ledger">
+          补字账房
+          <span id="ledgerAlert" class="tab-dot" hidden></span>
+        </button>
+      </nav>
 
-      <section class="workspace">
+      <section id="boardView" class="workspace">
         <aside class="panel inventory-panel">
           <div class="panel-head">
             <h2>字模库</h2>
@@ -95,7 +77,89 @@
           <div id="draftList" class="draft-list"></div>
         </aside>
       </section>
+
+      <section id="ledgerView" class="ledger" hidden>
+        <div class="ledger-grid">
+          <section class="panel ledger-panel">
+            <div class="panel-head">
+              <h2>版面缺字汇总</h2>
+              <button id="requestAllBtn" class="mini-primary" type="button">一键托铸</button>
+            </div>
+            <p class="hint">按「字 + 风格」归并缺口；有抵用先冲抵，有未结补字单就接着跟。</p>
+            <div id="shortageList" class="ledger-table"></div>
+          </section>
+
+          <section class="panel ledger-panel">
+            <div class="panel-head">
+              <h2>草稿解锁</h2>
+              <span id="draftUnlockCount"></span>
+            </div>
+            <p class="hint">补字到账、字模数量更新后自动重算，缺口清零才解锁载入。</p>
+            <div id="draftUnlockList" class="draft-list"></div>
+          </section>
+
+          <section class="panel ledger-panel wide">
+            <div class="panel-head">
+              <h2>外协补字单</h2>
+              <span id="orderCount"></span>
+            </div>
+            <div id="orderList" class="order-list"></div>
+          </section>
+
+          <section class="panel ledger-panel">
+            <div class="panel-head">
+              <h2>回货登记 · 分批核销</h2>
+            </div>
+            <form id="receiptForm" class="receipt-form">
+              <div class="receipt-head">
+                <label>回单号
+                  <input id="receiptNoInput" placeholder="例：HD-1007-03" required />
+                </label>
+                <label>铸字房
+                  <input id="foundryInput" placeholder="外协铸字房（可空）" />
+                </label>
+              </div>
+              <div class="receipt-lines-head">
+                <span>字</span><span>风格</span><span>枚数</span><span></span>
+              </div>
+              <div id="receiptLines"></div>
+              <div class="receipt-actions">
+                <button id="addRowBtn" type="button">加一行</button>
+                <button id="fillOutstandingBtn" type="button">按未结单填入</button>
+                <button class="primary" type="submit">登记并核销</button>
+              </div>
+              <p id="receiptError" class="form-error" hidden></p>
+            </form>
+          </section>
+
+          <section class="panel ledger-panel">
+            <div class="panel-head">
+              <h2>回单批次</h2>
+              <span id="receiptCount"></span>
+            </div>
+            <div id="receiptList" class="receipt-list"></div>
+          </section>
+
+          <section class="panel ledger-panel">
+            <div class="panel-head">
+              <h2>溢发抵用</h2>
+              <span id="creditCount"></span>
+            </div>
+            <div id="creditList" class="credit-list"></div>
+          </section>
+
+          <section class="panel ledger-panel">
+            <div class="panel-head">
+              <h2>挂账待裁</h2>
+              <span id="suspenseCount"></span>
+            </div>
+            <div id="suspenseList" class="suspense-list"></div>
+          </section>
+        </div>
+      </section>
     </main>
+
+    <div id="toastHost" class="toast-host" aria-live="polite"></div>
 
     <script src="app.js"></script>
   </body>

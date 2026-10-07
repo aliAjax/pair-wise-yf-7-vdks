@@ -397,6 +397,456 @@ h3 {
   margin: 14px 0;
 }
 
+/* ---------- 页签 ---------- */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  position: relative;
+  border-radius: 999px;
+  padding: 9px 22px;
+  font-weight: 800;
+}
+
+.tab-btn.active {
+  background: var(--ink);
+  color: #fffaf1;
+  border-color: var(--ink);
+}
+
+.tab-dot {
+  display: inline-grid;
+  place-items: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: 11px;
+  vertical-align: middle;
+}
+
+.tab-dot[hidden] {
+  display: none;
+}
+
+/* ---------- 字模数量步进 ---------- */
+
+.qty-stepper {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.step-btn {
+  width: 26px;
+  height: 24px;
+  padding: 0;
+  line-height: 1;
+  font-weight: 900;
+  border-radius: 5px;
+}
+
+.type-card.low {
+  border-color: var(--red);
+}
+
+/* ---------- 草稿锁 ---------- */
+
+.draft-item.locked {
+  border-color: var(--gold);
+  background: rgba(183, 134, 44, 0.08);
+}
+
+.lock-tag {
+  color: #fff;
+  background: var(--gold);
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-left: 6px;
+}
+
+.unlock-tag {
+  color: #fff;
+  background: var(--green);
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-left: 6px;
+}
+
+.lock-detail {
+  color: var(--red) !important;
+  font-size: 12px;
+}
+
+.lock-detail.ok {
+  color: var(--green) !important;
+}
+
+/* ---------- 账房 ---------- */
+
+.ledger {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.6);
+  padding: 16px;
+}
+
+.ledger-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ledger-panel.wide {
+  grid-column: 1 / -1;
+}
+
+.hint {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.mini-primary {
+  padding: 7px 14px;
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+  font-weight: 800;
+}
+
+.mini-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.ledger-table {
+  display: grid;
+  gap: 8px;
+  max-height: 46vh;
+  overflow: auto;
+}
+
+.ledger-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 8px 10px;
+}
+
+.ledger-row.compact {
+  justify-content: space-between;
+}
+
+.ledger-glyph {
+  display: grid;
+  place-items: center;
+  gap: 1px;
+  min-width: 52px;
+  height: 52px;
+  border: 1px solid #2f2921;
+  background: #2f2921;
+  color: #f8ead2;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 6px;
+}
+
+.ledger-glyph.small {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  font-size: 20px;
+}
+
+.ledger-glyph small {
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.ledger-nums {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ledger-nums b {
+  color: var(--ink);
+}
+
+.ledger-nums .gap b {
+  color: var(--red);
+}
+
+.credit-num {
+  color: var(--blue) !important;
+}
+
+.transit-num {
+  color: var(--gold);
+}
+
+.need-num b {
+  color: var(--green);
+}
+
+/* ---------- 补字单 ---------- */
+
+.order-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.order-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 10px 12px;
+}
+
+.order-card.closed {
+  opacity: 0.62;
+}
+
+.order-card header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.order-card .muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.order-tag {
+  border-radius: 4px;
+  padding: 1px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.order-tag.open {
+  background: var(--gold);
+}
+
+.order-tag.closed {
+  background: var(--green);
+}
+
+.order-lines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.order-line {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--panel);
+}
+
+.order-line small {
+  color: var(--muted);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.order-line.pending {
+  border-color: var(--gold);
+}
+
+.order-line.done {
+  border-color: var(--green);
+}
+
+/* ---------- 回单录入 ---------- */
+
+.receipt-form {
+  display: grid;
+  gap: 10px;
+}
+
+.receipt-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.receipt-head label,
+.receipt-lines-head {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.receipt-lines-head,
+.receipt-line-row {
+  grid-template-columns: 56px 1fr 80px 34px;
+  display: grid;
+  gap: 6px;
+  align-items: center;
+}
+
+#receiptLines {
+  display: grid;
+  gap: 6px;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.form-error {
+  margin: 0;
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- 回单批次 / 抵用 / 挂账 ---------- */
+
+.receipt-list,
+.credit-list,
+.suspense-list {
+  display: grid;
+  gap: 8px;
+  max-height: 42vh;
+  overflow: auto;
+}
+
+.receipt-card,
+.suspense-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 8px 10px;
+}
+
+.receipt-card header,
+.suspense-card {
+  display: grid;
+  gap: 4px;
+}
+
+.receipt-card .muted,
+.suspense-card .muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.writeoff-lines {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.wline {
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+.wline b {
+  float: right;
+}
+
+.wline.order {
+  background: rgba(60, 112, 86, 0.1);
+}
+
+.wline.credit {
+  background: rgba(54, 95, 125, 0.1);
+}
+
+.wline.suspense {
+  background: rgba(164, 64, 55, 0.1);
+}
+
+.suspense-card {
+  border-color: var(--red);
+}
+
+.suspense-card.resolved {
+  border-color: var(--line);
+  opacity: 0.65;
+}
+
+.suspense-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.suspense-actions button {
+  flex: 1;
+  padding: 6px;
+  font-size: 12px;
+}
+
+/* ---------- Toast ---------- */
+
+.toast-host {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 16px);
+  max-width: min(90vw, 560px);
+  border-radius: 8px;
+  padding: 11px 18px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+}
+
+.toast-host.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.toast-host.ok {
+  background: var(--green);
+}
+
+.toast-host.error {
+  background: var(--red);
+}
+
 @media (max-width: 1120px) {
   .workspace {
     grid-template-columns: 1fr;
@@ -404,6 +854,10 @@ h3 {
 
   .type-list {
     max-height: none;
+  }
+
+  .ledger-grid {
+    grid-template-columns: 1fr;
   }
 }
 
