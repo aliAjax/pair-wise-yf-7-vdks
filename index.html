@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>活字排版工坊</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">本地活字印章排版</p>
+          <h1>活字排版工坊</h1>
+        </div>
+        <div class="top-actions">
+          <button id="saveDraftBtn" class="primary">保存草稿</button>
+          <button id="exportBtn">导出预览图</button>
+          <button id="clearBoardBtn">清空版面</button>
+        </div>
+      </header>
+
+      <section class="settings-bar" aria-label="版面设置">
+        <label>
+          纸张
+          <select id="paperSize">
+            <option value="postcard">明信片</option>
+            <option value="bookmark">书签</option>
+            <option value="square">方形小笺</option>
+          </select>
+        </label>
+        <label>
+          方向
+          <select id="flowMode">
+            <option value="horizontal">横排</option>
+            <option value="vertical">竖排</option>
+          </select>
+        </label>
+        <label>
+          网格
+          <input id="gridGap" type="range" min="4" max="18" value="8" />
+        </label>
+        <label>
+          作品名
+          <input id="workTitle" type="text" placeholder="例：晚风小笺" />
+        </label>
+      </section>
+
+      <section class="workspace">
+        <aside class="panel inventory-panel">
+          <div class="panel-head">
+            <h2>字模库</h2>
+            <span id="inventoryCount"></span>
+          </div>
+          <form id="typeForm" class="type-form">
+            <input id="charInput" maxlength="2" placeholder="字" required />
+            <input id="styleInput" placeholder="风格" required />
+            <input id="sizeInput" type="number" min="8" max="72" value="24" required />
+            <input id="quantityInput" type="number" min="1" max="99" value="3" required />
+            <select id="wearInput">
+              <option value="新">新</option>
+              <option value="微磨">微磨</option>
+              <option value="旧痕">旧痕</option>
+            </select>
+            <button class="primary" type="submit">加入</button>
+          </form>
+          <div class="filter-row">
+            <input id="inventorySearch" type="search" placeholder="搜索字或风格" />
+            <select id="styleFilter">
+              <option value="all">全部风格</option>
+            </select>
+          </div>
+          <div id="typeList" class="type-list"></div>
+        </aside>
+
+        <section class="stage-wrap">
+          <div class="status-strip">
+            <div>
+              <strong id="selectedTypeLabel">未选择字模</strong>
+              <span>点击字模后，在版面格子中落字，也可拖拽字模到版面。</span>
+            </div>
+            <div id="shortageBadge" class="badge ok">数量充足</div>
+          </div>
+          <div id="stage" class="stage" aria-label="排版画布"></div>
+        </section>
+
+        <aside class="panel draft-panel">
+          <div class="panel-head">
+            <h2>草稿与核对</h2>
+            <span id="placedCount"></span>
+          </div>
+          <div id="usageList" class="usage-list"></div>
+          <div class="divider"></div>
+          <h3>已保存草稿</h3>
+          <div id="draftList" class="draft-list"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
