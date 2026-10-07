@@ -95,8 +95,60 @@
           <div id="draftList" class="draft-list"></div>
         </aside>
       </section>
+      <section class="recon" aria-label="补字对账">
+        <div class="recon-head">
+          <div>
+            <p class="eyebrow">外协铸字 · 逐批核销</p>
+            <h2>补字对账</h2>
+          </div>
+          <div class="recon-summary" id="reconSummary"></div>
+          <div class="recon-actions">
+            <button id="ensureOrdersBtn" class="primary">生成补字单</button>
+            <button id="toggleBatchFormBtn">登记回货</button>
+            <button id="recoverBtn" title="写入失败后可从此备份恢复">恢复上一份账</button>
+          </div>
+        </div>
+
+        <form id="batchForm" class="batch-form" hidden>
+          <div class="batch-form-row">
+            <label>回单号 <input id="receiptNo" placeholder="例：HZ-20261007-01" required /></label>
+            <label>备注 <input id="batchNote" placeholder="选填" /></label>
+          </div>
+          <div id="batchLines" class="batch-lines"></div>
+          <div class="batch-form-actions">
+            <button type="button" id="addBatchLineBtn">加一行</button>
+            <button type="submit" class="primary">核销到账</button>
+          </div>
+        </form>
+
+        <div class="recon-grid">
+          <article class="recon-card">
+            <h3>缺字汇总 <span id="demandCount"></span></h3>
+            <div id="demandList" class="recon-list"></div>
+          </article>
+          <article class="recon-card">
+            <h3>补字单 <span id="orderCount"></span></h3>
+            <div id="orderList" class="recon-list"></div>
+          </article>
+          <article class="recon-card">
+            <h3>回货核销 <span id="batchCount"></span></h3>
+            <div id="batchList" class="recon-list"></div>
+          </article>
+          <article class="recon-card">
+            <h3>挂账等裁 <span id="pendingCount"></span></h3>
+            <div id="pendingList" class="recon-list"></div>
+          </article>
+          <article class="recon-card">
+            <h3>抵用余额 <span id="creditCount"></span></h3>
+            <div id="creditList" class="recon-list"></div>
+          </article>
+        </div>
+      </section>
     </main>
 
+    <div id="toast" class="toast" hidden role="status"></div>
+
+    <script src="reconciliation.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

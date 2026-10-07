@@ -430,3 +430,365 @@ h3 {
     padding: 10px;
   }
 }
+
+/* ---------- 补字对账 ---------- */
+
+.recon {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.92);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.recon-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.recon-head h2 {
+  margin-bottom: 2px;
+}
+
+.recon-summary {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.recon-summary .chip {
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.recon-summary .chip.warn {
+  background: rgba(164, 64, 55, 0.1);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.recon-summary .chip.ok {
+  background: rgba(60, 112, 86, 0.1);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.recon-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.batch-form {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 12px;
+  margin-bottom: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.batch-form[hidden] {
+  display: none;
+}
+
+.batch-form-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.batch-form-row label {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  flex: 1;
+  min-width: 180px;
+}
+
+.batch-lines {
+  display: grid;
+  gap: 8px;
+}
+
+.batch-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr 110px 36px;
+  gap: 8px;
+  align-items: center;
+}
+
+.batch-line input {
+  width: 100%;
+}
+
+.batch-line .remove-line {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--red);
+}
+
+.batch-form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.recon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.recon-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.recon-card h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.recon-card h3 span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.recon-list {
+  display: grid;
+  gap: 8px;
+  max-height: 320px;
+  overflow: auto;
+  align-content: start;
+}
+
+.recon-list .empty {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 8px 2px;
+}
+
+.recon-row {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fffaf1;
+  padding: 8px 9px;
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.recon-row .row-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.recon-row .row-top strong {
+  font-size: 14px;
+}
+
+.recon-row .row-meta {
+  color: var(--muted);
+  font-size: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.recon-row .row-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.recon-row .row-actions button {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.tag {
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.tag.open {
+  background: rgba(183, 134, 44, 0.16);
+  color: var(--gold);
+}
+
+.tag.settled {
+  background: rgba(60, 112, 86, 0.14);
+  color: var(--green);
+}
+
+.tag.pending {
+  background: rgba(164, 64, 55, 0.14);
+  color: var(--red);
+}
+
+.tag.credit {
+  background: rgba(54, 95, 125, 0.14);
+  color: var(--blue);
+}
+
+.tag.wrong {
+  background: rgba(111, 103, 92, 0.16);
+  color: var(--muted);
+}
+
+.progress {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(47, 41, 33, 0.1);
+  overflow: hidden;
+}
+
+.progress > i {
+  display: block;
+  height: 100%;
+  background: var(--green);
+}
+
+/* 草稿 / 版面 缺字锁定标记 */
+.lock-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.lock-tag.locked {
+  background: rgba(164, 64, 55, 0.14);
+  color: var(--red);
+}
+
+.lock-tag.unlocked {
+  background: rgba(60, 112, 86, 0.14);
+  color: var(--green);
+}
+
+.draft-item .draft-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* 字模数量步进器 */
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fffdf8;
+  padding: 2px;
+}
+
+.qty-stepper button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.qty-stepper button:hover {
+  background: rgba(54, 95, 125, 0.1);
+  box-shadow: none;
+  transform: none;
+}
+
+.qty-stepper input {
+  width: 42px;
+  border: none;
+  padding: 2px;
+  text-align: center;
+  font-size: 13px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.qty-stepper input::-webkit-outer-spin-button,
+.qty-stepper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 提示 toast */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fffaf1;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(34, 32, 28, 0.25);
+  z-index: 100;
+  max-width: min(90vw, 520px);
+}
+
+.toast[hidden] {
+  display: none;
+}
+
+.toast.warn {
+  background: var(--red);
+}
+
+.toast.ok {
+  background: var(--green);
+}
+
+.toast.info {
+  background: var(--blue);
+}
+
+.export-hint {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 6px;
+}
